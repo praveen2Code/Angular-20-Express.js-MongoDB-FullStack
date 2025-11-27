@@ -1,5 +1,5 @@
 # Full-Stack Application: Angular 20 + Express.js + MongoDB
-Please read bellow the intrsuctions after UI screenshots.
+Please read the intrsuctions after the UI screenshots.
 
 <img width="2551" height="1325" alt="Screenshot 2025-11-27 153818" src="https://github.com/user-attachments/assets/d4142905-4166-4908-ab0b-8fac400f7de0" />
 
