@@ -83,9 +83,9 @@ mongod
 ```
 
 ### 3.1 Add .env file
-# PORT=3000
-# MONGODB_URI=Put you mongdb url here
-# NODE_ENV=development
+ PORT=3000
+ MONGODB_URI=Put you mongdb url here
+ NODE_ENV=development
 
 ### 4. Run Backend Server
 
