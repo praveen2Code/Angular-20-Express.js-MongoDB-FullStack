@@ -1,0 +1,68 @@
+<div class="user-detail-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>User Details</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div *ngIf="isLoading" class="loading-container">
+        <mat-spinner></mat-spinner>
+      </div>
+
+      <div *ngIf="!isLoading && user" class="user-details">
+        <div class="detail-row">
+          <span class="label">Name:</span>
+          <span class="value">{{ user.name }}</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Email:</span>
+          <span class="value">{{ user.email }}</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Age:</span>
+          <span class="value">{{ user.age || 'N/A' }}</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Phone:</span>
+          <span class="value">{{ user.phone || 'N/A' }}</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Address:</span>
+          <span class="value">{{ user.address || 'N/A' }}</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Status:</span>
+          <span [class]="user.isActive ? 'status-active' : 'status-inactive'">
+            {{ user.isActive ? 'Active' : 'Inactive' }}
+          </span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Created:</span>
+          <span class="value">{{ user.createdAt | date:'medium' }}</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Updated:</span>
+          <span class="value">{{ user.updatedAt | date:'medium' }}</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button mat-raised-button (click)="goBack()">
+          <mat-icon>arrow_back</mat-icon>
+          Back to List
+        </button>
+        <button mat-raised-button color="primary" (click)="editUser()">
+          <mat-icon>edit</mat-icon>
+          Edit User
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

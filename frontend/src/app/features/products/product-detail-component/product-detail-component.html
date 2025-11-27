@@ -1,0 +1,68 @@
+<div class="product-detail-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Product Details</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div *ngIf="isLoading" class="loading-container">
+        <mat-spinner></mat-spinner>
+      </div>
+
+      <div *ngIf="!isLoading && product" class="product-details">
+        <div class="detail-row">
+          <span class="label">Name:</span>
+          <span class="value">{{ product.name }}</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Description:</span>
+          <span class="value">{{ product.description || 'N/A' }}</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Price:</span>
+          <span class="value">${{ product.price }}</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Category:</span>
+          <span class="value">{{ product.category }}</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Stock:</span>
+          <span class="value">{{ product.stock }}</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Availability:</span>
+          <span [class]="product.isAvailable ? 'status-available' : 'status-unavailable'">
+            {{ product.isAvailable ? 'Available' : 'Unavailable' }}
+          </span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Created:</span>
+          <span class="value">{{ product.createdAt | date:'medium' }}</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Updated:</span>
+          <span class="value">{{ product.updatedAt | date:'medium' }}</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button mat-raised-button (click)="goBack()">
+          <mat-icon>arrow_back</mat-icon>
+          Back to List
+        </button>
+        <button mat-raised-button color="primary" (click)="editProduct()">
+          <mat-icon>edit</mat-icon>
+          Edit Product
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

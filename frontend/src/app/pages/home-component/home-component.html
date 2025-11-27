@@ -1,0 +1,63 @@
+<div class="home-container">
+  <div class="hero-section">
+    <h1>Welcome to FullStack Application</h1>
+    <p class="subtitle">Angular 20 + Express.js + MongoDB</p>
+    <p class="description">
+      A complete full-stack application demonstrating CRUD operations, routing, 
+      parent-child components, and Angular Material design
+    </p>
+  </div>
+
+  <div class="features-section">
+    <h2>Features</h2>
+    <div class="features-grid">
+      <mat-card *ngFor="let feature of features" class="feature-card">
+        <mat-card-header>
+          <div mat-card-avatar>
+            <mat-icon [color]="feature.color" class="feature-icon">{{ feature.icon }}</mat-icon>
+          </div>
+          <mat-card-title>{{ feature.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ feature.description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button [color]="feature.color" (click)="navigateTo(feature.route)">
+            Explore
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="tech-stack">
+    <h2>Technology Stack</h2>
+    <div class="tech-grid">
+      <div class="tech-item">
+        <mat-icon>code</mat-icon>
+        <h3>Frontend</h3>
+        <p>Angular 20</p>
+        <p>Angular Material</p>
+        <p>TypeScript</p>
+        <p>SCSS</p>
+      </div>
+      <div class="tech-item">
+        <mat-icon>storage</mat-icon>
+        <h3>Backend</h3>
+        <p>Node.js</p>
+        <p>Express.js</p>
+        <p>MongoDB</p>
+        <p>Mongoose</p>
+      </div>
+      <div class="tech-item">
+        <mat-icon>settings</mat-icon>
+        <h3>Features</h3>
+        <p>RESTful API</p>
+        <p>Lazy Loading</p>
+        <p>Reactive Forms</p>
+        <p>Routing</p>
+      </div>
+    </div>
+  </div>
+</div>

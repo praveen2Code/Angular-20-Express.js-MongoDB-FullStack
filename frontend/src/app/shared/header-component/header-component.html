@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span class="logo" [routerLink]="['/']" >FullStack Crud</span>
+    
+    <span class="spacer"></span>
+    
+    <nav class="nav-menu">
+      <a mat-button *ngFor="let item of menuItems" [routerLink]="item.path" routerLinkActive="active">
+        <mat-icon>{{ item.icon }}</mat-icon>
+        {{ item.label }}
+      </a>
+    </nav>
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,79 @@
+<div class="user-form-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ isEditMode ? 'Edit User' : 'Add New User' }}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div *ngIf="isLoading" class="loading-container">
+        <mat-spinner></mat-spinner>
+      </div>
+
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" placeholder="Enter name" required>
+            <mat-error *ngIf="userForm.get('name')?.hasError('required')">
+              Name is required
+            </mat-error>
+            <mat-error *ngIf="userForm.get('name')?.hasError('minlength')">
+              Name must be at least 2 characters
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" placeholder="Enter email" required>
+            <mat-error *ngIf="userForm.get('email')?.hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="userForm.get('email')?.hasError('email')">
+              Please enter a valid email
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Age</mat-label>
+            <input matInput type="number" formControlName="age" placeholder="Enter age">
+            <mat-error *ngIf="userForm.get('age')?.hasError('min')">
+              Age must be positive
+            </mat-error>
+            <mat-error *ngIf="userForm.get('age')?.hasError('max')">
+              Age must be realistic
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone" placeholder="Enter phone">
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Address</mat-label>
+            <textarea matInput formControlName="address" placeholder="Enter address" rows="3"></textarea>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-checkbox formControlName="isActive">Active</mat-checkbox>
+        </div>
+
+        <div class="form-actions">
+          <button mat-raised-button type="button" (click)="onCancel()">
+            Cancel
+          </button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid || isLoading">
+            {{ isEditMode ? 'Update' : 'Create' }}
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
